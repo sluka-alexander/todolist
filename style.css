@@ -1,0 +1,125 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    background: #5F13AA;
+}
+h1{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+}
+.container_todo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 343px;
+    background: #F3F7FA;
+    border-radius: 10px;
+    box-shadow: 0px 4px 150px rgba(55, 105, 151, 0.3);
+}
+.name_of_column{
+    margin-top: 21px;
+    width: 307px;
+}
+.image_and_date{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 307px;
+    height: 125px;
+    margin-bottom: 14px;
+    background-image: url("img/kingdom-4.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.cleaner_section{
+    display: flex;
+    justify-content: flex-end;
+}
+.cleaner{
+    right: auto;
+    background-image: url("img/transform.png");
+    padding: 12px;
+    width: 12px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cleaner:hover{
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: .6s;
+}
+.date{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+.content{
+    width: 307px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    margin-bottom: 10px;
+}
+.content_outside{
+    padding: 18px;
+}
+.label{
+    width: 45px;
+    height: 3px;
+    background: #FF3434;
+    border-radius: 10px;
+}
+.delete{
+    background-image: url("img/delete.png");
+    width: 6px;
+    padding: 6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.delete:hover{
+    transition: .3s;
+    cursor: pointer;
+    background-image: url("img/delete_hover.png");
+}
+.title{
+    margin: 5px 0px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+}
+.title_item{
+    display: flex;
+    justify-content: space-between;
+}
+.text{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #929292;
+}
+.add_task_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    width: 150px;
+    height: 40px;
+    background-color: #2568EF;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    margin-bottom: 18px;
+
+}
+.add_task_button:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #1445A7;
+}
