@@ -132,7 +132,7 @@ h1{
 }
 .button_open_form_add_task:hover{
     cursor: pointer;
-
+    transition: 0.3s;
     background-color: #1445A7;
 }
 /*--------------------new-task----------------------*/
