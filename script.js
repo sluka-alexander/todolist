@@ -6,10 +6,14 @@ const title = document.getElementById('title');
 const tasks = document.getElementById('tasks');
 const text = document.getElementById('text');
 const button = document.getElementById('add_new_task');
+const default_item = document.getElementsByClassName('default_text')
 
 let list = [];
 let id = 1;
-
+if(localStorage.getItem('todo')!= undefined){
+    list = JSON.parse(localStorage.getItem('todo'));
+    out_all_task();
+}
 function add_task_html(title, text) {
     const item = `<div class="content">
         <div class="content_outside">
@@ -40,6 +44,7 @@ function add_task() {
         });
         console.log(list);
     }
+    localStorage.setItem('todo', JSON.stringify(list));
     id++;
     title.value = '';
     text.value = '';
@@ -54,6 +59,11 @@ function show_form(state) {
     form_task.style.display = state;
     grey.style.display = state;
 }
+function out_all_task() {
+    for (let i in list){
+        add_task_html(list[i].title,list[i].text);
+    }
+}
 
 // Show todays date
 function date_today() {
@@ -62,6 +72,5 @@ function date_today() {
 
     date.innerHTML = today.toLocaleDateString("eng-ENG", options);
 }
-
 date_today();
 
