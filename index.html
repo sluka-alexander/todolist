@@ -7,6 +7,8 @@
     <title>Todo</title>
 </head>
 <body>
+<div id="grey" onclick="show_form('none')"></div>
+
 <div class="container_todo ">
     <div class="name_of_column"><h1>Doing</h1></div>
     <div class="image_and_date">
@@ -47,13 +49,14 @@
             </div>
         </div>
     </div>
-    <div class="button_open_form_add_task">
+    <div class="button_open_form_add_task" id="open_form" onclick="show_form('block')">
         <div class="text_button">Add task</div>
     </div>
 </div>
 <br>
-<form action="url" class="form_add">
-    <div class="name_of_column"><h1>New task</h1></div>
+<div class="form_add" id="form">
+    <span class="close" onclick="show_form('none')"></span>
+    <span class="name_of_form"><h1>New task</h1></span>
     <br>
     <input type="text" placeholder="Name task" id="title">
     <textarea placeholder="Text" id="text"></textarea>
@@ -61,7 +64,7 @@
     <div class="button_form_add_task">
         <div class="text_button">Add new task</div>
     </div>
-</form>
+</div>
 <br><br>
 <script src="script.js"></script>
 </body>
