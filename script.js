@@ -6,7 +6,7 @@ const title = document.getElementById('title');
 const tasks = document.getElementById('tasks');
 const text = document.getElementById('text');
 const button = document.getElementById('add_new_task');
-const default_item = document.getElementsByClassName('default_text')
+const button_cleaner = document.getElementById('cleaner')
 
 let list = [];
 let id = 1;
@@ -14,6 +14,14 @@ if(localStorage.getItem('todo')!= undefined){
     list = JSON.parse(localStorage.getItem('todo'));
     out_all_task();
 }
+
+function clean_all_tasks() {
+    button_cleaner.addEventListener('click', ()=>{
+            localStorage.clear();
+            window.location.reload();
+    })
+}
+
 function add_task_html(title, text) {
     const item = `<div class="content">
         <div class="content_outside">
@@ -73,4 +81,5 @@ function date_today() {
     date.innerHTML = today.toLocaleDateString("eng-ENG", options);
 }
 date_today();
+clean_all_tasks();
 
