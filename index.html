@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overlay">
 <head>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Todo</title>
 </head>
 <body>
-<div class="container_todo">
+<div class="container_todo ">
     <div class="name_of_column"><h1>Doing</h1></div>
     <div class="image_and_date">
         <div class="cleaner_section">
@@ -47,10 +47,22 @@
             </div>
         </div>
     </div>
-    <div class="add_task_button">
-        <div class="text_button">Add new task</div>
+    <div class="button_open_form_add_task">
+        <div class="text_button">Add task</div>
     </div>
 </div>
+<br>
+<form action="url" class="form_add">
+    <div class="name_of_column"><h1>New task</h1></div>
+    <br>
+    <input type="text" placeholder="Name task" id="title">
+    <textarea placeholder="Text" id="text"></textarea>
+    <br>
+    <div class="button_form_add_task">
+        <div class="text_button">Add new task</div>
+    </div>
+</form>
+<br><br>
 <script src="script.js"></script>
 </body>
 </html>
