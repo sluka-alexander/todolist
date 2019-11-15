@@ -88,17 +88,18 @@ h1{
     border-radius: 10px;
 }
 .delete{
-    background-image: url("img/delete.png");
+    background-image: url("img/61848.png");
     width: 6px;
     padding: 6px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    opacity: 70%;
 }
 .delete:hover{
+    opacity: 100%;
     transition: .3s;
     cursor: pointer;
-    background-image: url("img/delete_hover.png");
 }
 .title{
     margin: 5px 0px;
@@ -163,7 +164,9 @@ textarea, input{
     border-radius: 15px;
     margin-bottom: 5px;
 }
-
+.text_line{
+    white-space: pre-line;
+}
 .button_form_add_task{
     display: flex;
     justify-content: center;

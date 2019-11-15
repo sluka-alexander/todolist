@@ -8,21 +8,25 @@ const text = document.getElementById('text');
 const button = document.getElementById('add_new_task');
 const button_cleaner = document.getElementById('cleaner')
 
+
 let list = [];
 let id = 1;
+
 if(localStorage.getItem('todo')!= undefined){
     list = JSON.parse(localStorage.getItem('todo'));
+    id = JSON.parse(localStorage.getItem('id'));
+    console.log(list);
     out_all_task();
 }
 
 function clean_all_tasks() {
     button_cleaner.addEventListener('click', ()=>{
-            localStorage.clear();
-            window.location.reload();
+        localStorage.clear();
+        window.location.reload();
     })
 }
 
-function add_task_html(title, text) {
+function add_task_html(title, text, id_task) {
     const item = `<div class="content">
         <div class="content_outside">
             <div class="label"></div>
@@ -30,7 +34,7 @@ function add_task_html(title, text) {
             <div class="item">
                 <div class="title_item">
                     <div class="title">${title}</div>
-                    <div class="delete"></div>
+                    <div class="delete" id="${id_task}"></div>
                 </div>
             </div>
             <div class="text">${text}</div>
@@ -54,6 +58,7 @@ function add_task() {
     }
     localStorage.setItem('todo', JSON.stringify(list));
     id++;
+    localStorage.setItem('id', JSON.stringify(id));
     title.value = '';
     text.value = '';
     grey.style.display = 'none';
@@ -69,7 +74,7 @@ function show_form(state) {
 }
 function out_all_task() {
     for (let i in list){
-        add_task_html(list[i].title,list[i].text);
+        add_task_html(list[i].title,list[i].text,list[i].id);
     }
 }
 
@@ -80,6 +85,15 @@ function date_today() {
 
     date.innerHTML = today.toLocaleDateString("eng-ENG", options);
 }
+
+tasks.addEventListener('click',(event)=>{
+    if (event.target.className != 'delete') return;
+    let content = event.target.closest('.content');
+    content.remove();
+    let id_task = event.target.id;
+    list.splice(id_task -1 , 1);
+    localStorage.setItem('todo', JSON.stringify(list));
+});
+
 date_today();
 clean_all_tasks();
-
