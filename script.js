@@ -8,9 +8,9 @@ const text = document.getElementById('text');
 const button = document.getElementById('add_new_task');
 const button_cleaner = document.getElementById('cleaner')
 
-
 let list = [];
 let id = 1;
+let label = ' ';
 
 if(localStorage.getItem('todo')!= undefined){
     list = JSON.parse(localStorage.getItem('todo'));
@@ -44,15 +44,22 @@ function add_task_html(title, text, id_task) {
     tasks.insertAdjacentHTML(position, item);
 }
 
+form_task.addEventListener("click", (event)=> {
+    let id_task = event.target.id;
+    label = id_task;
+    console.log(id_task);
+});
+
 function add_task() {
     const title_value = title.value;
     const text_value = text.value;
     if (title_value && text_value) {
-        add_task_html(title.value,text.value,id);
+        add_task_html(title.value,text.value,list.length + 1);
         list.push({
             title: title.value,
             text: text.value,
-            id: id
+            id: id,
+            label: label
         });
         console.log(list);
     }
@@ -85,7 +92,6 @@ function out_all_task() {
     }
 }
 
-// Show todays date
 function date_today() {
     const options = {weekday: "short", month: "short", day: "numeric"};
     const today = new Date();
@@ -104,3 +110,4 @@ tasks.addEventListener('click',(event)=>{
 
 date_today();
 clean_all_tasks();
+

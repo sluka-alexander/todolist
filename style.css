@@ -10,20 +10,23 @@
 /*    animation: fade-in 1s linear; !* IE 10+, Fx 29+ *!*/
 /*}*/
 
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: 'Rubik', sans-serif;
 }
-html{
+
+html {
     /*background: #5F13AA;*/
 }
-h1{
+
+h1 {
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
 }
-.container_todo{
+
+.container_todo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,11 +36,13 @@ h1{
     border-radius: 15px;
     box-shadow: 0px 4px 150px rgba(55, 105, 151, 0.3);
 }
-.name_of_column{
+
+.name_of_column {
     margin-top: 21px;
     width: 360px;
 }
-.image_and_date{
+
+.image_and_date {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -49,11 +54,13 @@ h1{
     background-position: center;
     background-size: contain;
 }
-.cleaner_section{
+
+.cleaner_section {
     display: flex;
     justify-content: flex-end;
 }
-.cleaner{
+
+.cleaner {
     right: auto;
     background-image: url("img/transform.png");
     padding: 14px;
@@ -62,32 +69,38 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
 }
-.cleaner:hover{
+
+.cleaner:hover {
     cursor: pointer;
     transform: rotate(360deg);
     transition: .6s;
 }
-.date{
+
+.date {
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
 }
-.content{
+
+.content {
     width: 360px;
     border-radius: 15px;
     background: #FFFFFF;
     margin-bottom: 10px;
 }
-.content_outside{
+
+.content_outside {
     padding: 18px;
 }
-.label{
+
+.label {
     width: 45px;
     height: 3px;
     background: #FF3434;
     border-radius: 10px;
 }
-.delete{
+
+.delete {
     background-image: url("img/61848.png");
     width: 6px;
     padding: 6px;
@@ -96,28 +109,33 @@ h1{
     background-position: center;
     opacity: 70%;
 }
-.delete:hover{
+
+.delete:hover {
     opacity: 100%;
     transition: .3s;
     cursor: pointer;
 }
-.title{
+
+.title {
     margin: 5px 0px;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
 }
-.title_item{
+
+.title_item {
     display: flex;
     justify-content: space-between;
 }
-.text{
+
+.text {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     color: #929292;
 }
-.button_open_form_add_task{
+
+.button_open_form_add_task {
     font-size: 18px;
     display: flex;
     justify-content: center;
@@ -131,30 +149,33 @@ h1{
     color: white;
     margin-bottom: 18px;
 }
-.button_open_form_add_task:hover{
+
+.button_open_form_add_task:hover {
     cursor: pointer;
     transition: 0.3s;
     background-color: #1445A7;
 }
+
 /*--------------------new-task----------------------*/
 
-.form_add{
+.form_add {
     text-align: center;
     position: fixed;
-    left:0;
+    left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     margin: 200px auto;
     width: 500px;
-    height: 200px;
+    height: 300px;
     background: #F3F7FA;
     border-radius: 15px;
     display: none;
     z-index: 150;
     padding: 10px;
 }
-textarea, input{
+
+textarea, input {
     padding: 10px 3px;
     font-style: italic;
     font-weight: 400;
@@ -164,10 +185,12 @@ textarea, input{
     border-radius: 15px;
     margin-bottom: 5px;
 }
-.text_line{
+
+.text_line {
     white-space: pre-line;
 }
-.button_form_add_task{
+
+.button_form_add_task {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,22 +202,25 @@ textarea, input{
     color: white;
     margin: 0 auto;
 }
-.button_form_add_task:hover{
+
+.button_form_add_task:hover {
     cursor: pointer;
     transition: 0.3s;
     background-color: #A67E22;
 }
+
 #grey {
-    background-color: rgba(0,0,0,0.75);
-    position:fixed;
-    left:0;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     z-index: 100;
     display: none;
 }
-.close{
+
+.close {
     padding: 10px;
     width: 10px;
     background-image: url("img/w512h5121380984637delete1.png");
@@ -204,3 +230,24 @@ textarea, input{
     cursor: pointer;
     margin-left: 480px;
 }
+
+
+input[type=radio]{
+    -webkit-appearance:none;
+    width: 50px;
+    height: 50px;
+}
+input[type=radio]:checked{
+    -webkit-appearance:none;
+    border: 3px solid #1445A7;
+}
+#red{
+    background-color: red;
+}
+#blue{
+ background-color: #2568EF;
+}
+#green {
+    background-color: #07c200;
+}
+
