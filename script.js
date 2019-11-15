@@ -48,7 +48,7 @@ function add_task() {
     const title_value = title.value;
     const text_value = text.value;
     if (title_value && text_value) {
-        add_task_html(title.value,text.value);
+        add_task_html(title.value,text.value,id);
         list.push({
             title: title.value,
             text: text.value,
@@ -56,8 +56,8 @@ function add_task() {
         });
         console.log(list);
     }
-    localStorage.setItem('todo', JSON.stringify(list));
     id++;
+    localStorage.setItem('todo', JSON.stringify(list));
     localStorage.setItem('id', JSON.stringify(id));
     title.value = '';
     text.value = '';
@@ -73,8 +73,10 @@ function show_form(state) {
     grey.style.display = state;
 }
 function out_all_task() {
+    let id_task = 1;
     for (let i in list){
-        add_task_html(list[i].title,list[i].text,list[i].id);
+        add_task_html(list[i].title,list[i].text,id_task);
+        id_task++;
     }
 }
 
