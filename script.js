@@ -67,6 +67,11 @@ function add_task() {
 
 button.addEventListener('click', add_task);
 
+document.addEventListener("keyup",function(event){
+    if(event.keyCode == 13){
+        add_task();
+    }
+});
 
 function show_form(state) {
     form_task.style.display = state;
