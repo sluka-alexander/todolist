@@ -241,7 +241,7 @@ textarea, input {
 
 input[type=radio] {
     -webkit-appearance: none;
-    transition: 0.3s;
+
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -250,11 +250,6 @@ input[type=radio] {
 input[type=radio]:checked {
     -webkit-appearance: none;
     border: 3px solid #1445A7;
-}
-input[type=radio]:hover {
-    transition: 0.3s;
-    opacity: 0.5;
-
 }
 
 #red {
@@ -297,6 +292,7 @@ input[type=radio]:hover {
     background: #F3F7FA;
     border-radius: 15px;
     box-shadow: 0px 4px 150px rgba(55, 105, 151, 0.3);
+    margin-bottom: 100px;
 }
 
 .content_sort {
@@ -306,40 +302,51 @@ input[type=radio]:hover {
     border-radius: 15px;
     margin-bottom: 10px;
 }
+#sort_tasks{
+width: 100%;
+}
 .line{
     width: 100%;
-    height: 2px;
-
+    height: 3px;
+    margin: 5px 0px;
+    border-radius: 50px;
 }
-.button_container{
+
+.button_container {
     display: flex;
     margin-bottom: 10px;
 }
-.button_sort{
+
+.button_sort {
+    text-align: center;
     transition: .3s;
-    padding: 5px;
     color: white;
     font-size: 16px;
     font-weight: 500;
     border: none;
-    width: 60px;
-    height: 40px;
+    width: 70px;
+    height: 35px;
     cursor: pointer;
     margin-right: 5px;
     border-radius: 50px;
 }
-.button_sort:hover{
+
+.button_sort:hover {
+    cursor: pointer;
     transition: .3s;
     background-color: rgba(0, 0, 0, 0.5);
-    width: 75px;
+    width: 100px;
     height: 50px;
 }
-#red_sort{
+
+#red_sort {
     background-color: #fa1a1c;
 }
-#green_sort{
+
+#green_sort {
     background-color: #07c200;
 }
-#blue_sort{
+
+#blue_sort {
     background-color: #2568EF;
 }
