@@ -26,6 +26,12 @@ h1 {
     font-size: 24px;
 }
 
+h2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
 .container_todo {
     display: flex;
     flex-direction: column;
@@ -61,6 +67,7 @@ h1 {
 }
 
 .cleaner {
+    transition: .3s;
     right: auto;
     background-image: url("img/transform.png");
     padding: 14px;
@@ -135,6 +142,7 @@ h1 {
 }
 
 .button_open_form_add_task {
+    transition: .3s;
     font-size: 18px;
     display: flex;
     justify-content: center;
@@ -166,7 +174,7 @@ h1 {
     bottom: 0;
     margin: 200px auto;
     width: 500px;
-    height: 300px;
+    height: 350px;
     background: #F3F7FA;
     border-radius: 15px;
     display: none;
@@ -231,36 +239,107 @@ textarea, input {
 }
 
 
-input[type=radio]{
-    -webkit-appearance:none;
+input[type=radio] {
+    -webkit-appearance: none;
+    transition: 0.3s;
     width: 50px;
     height: 50px;
     cursor: pointer;
 }
-input[type=radio]:checked{
-    -webkit-appearance:none;
+
+input[type=radio]:checked {
+    -webkit-appearance: none;
     border: 3px solid #1445A7;
 }
-#red{
+input[type=radio]:hover {
+    transition: 0.3s;
+    opacity: 0.5;
+
+}
+
+#red {
     background-color: red;
 }
-#blue{
- background-color: #2568EF;
+
+#blue {
+    background-color: #2568EF;
 }
+
 #green {
     background-color: #07c200;
 }
 
-.red{
+.red {
     background-color: red;
 }
-.blue{
+
+.blue {
     background-color: #2568EF;
 }
+
 .green {
     background-color: #07c200;
 }
-.check_items{
+
+.check_items {
     display: none;
-    color:red;
+    color: red;
+}
+
+/*---------------------------SORT----------------------------*/
+.container_sort_task {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 600px;
+    background: #F3F7FA;
+    border-radius: 15px;
+    box-shadow: 0px 4px 150px rgba(55, 105, 151, 0.3);
+}
+
+.content_sort {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.line{
+    width: 100%;
+    height: 2px;
+
+}
+.button_container{
+    display: flex;
+    margin-bottom: 10px;
+}
+.button_sort{
+    transition: .3s;
+    padding: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 50px;
+}
+.button_sort:hover{
+    transition: .3s;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 75px;
+    height: 50px;
+}
+#red_sort{
+    background-color: #fa1a1c;
+}
+#green_sort{
+    background-color: #07c200;
+}
+#blue_sort{
+    background-color: #2568EF;
 }
