@@ -5,12 +5,13 @@ const check_items = document.getElementById('check_items');
 
 // const block_select = document.getElementById('container_sort');
 const sort_tasks = document.getElementById('sort_tasks');
-
 const title = document.getElementById('title');
 const tasks = document.getElementById('tasks');
 const text = document.getElementById('text');
 const button = document.getElementById('add_new_task');
 const button_cleaner = document.getElementById('cleaner');
+
+
 
 let list = [];
 let id = 1;
@@ -31,12 +32,12 @@ function clean_all_tasks() {
 }
 
 function add_task_html(title, text, id_task, color_label) {
-    const item = `<div class="content">
+    const item = `<div class="content" id="task_${id_task}" draggable="true">
         <div class="content_outside">
             <div class="label ${color_label}"></div>
             <div class="circle-border"></div>
             <div class="item">
-                <div class="title_item">
+                <div class="title_item" id="title_item">
                     <div class="title">${title}</div>
                     <div class="delete" id="${id_task}"></div>
                 </div>
@@ -59,6 +60,7 @@ function add_task() {
     const title_value = title.value;
     const text_value = text.value;
     if (title_value && text_value) {
+        sort_tasks.innerHTML = "";
         add_task_html(title.value, text.value, list.length + 1, label);
         list.push({
             title: title.value,
@@ -110,6 +112,7 @@ function date_today() {
 }
 
 tasks.addEventListener('click', (event) => {
+    sort_tasks.innerHTML = "";
     if (event.target.className != 'delete') return;
     let content = event.target.closest('.content');
     content.remove();
@@ -138,7 +141,7 @@ blue.addEventListener("click", () => {
 function sort_task_func(color) {
     sort_tasks.innerHTML = "";
     let sort_tasks_arr = list.filter((el) => {
-        return el.label == color;
+        return el.label === color;
     })
     out_all_sort_task(sort_tasks_arr);
 }
@@ -150,6 +153,7 @@ function out_all_sort_task(sort_tasks_arr) {
         id_task++;
     }
 }
+
 function add_sort_task_html(title, text, color) {
     const item = `<div class="content_sort">
             <div class="content_outside">
@@ -181,3 +185,16 @@ function add_sort_task_html(title, text, color) {
 //     //     return value.label == id_label;
 //     // });
 // });
+
+// DRAG AND DROP
+tasks.addEventListener("dragstart", dragstart);
+tasks.addEventListener("dragend", dragend);
+
+function dragstart(el) {
+    let id_task = el.target.id;
+    console.log(start);
+    console.log(id_task);
+}
+function dragend() {
+    console.log("end");
+}

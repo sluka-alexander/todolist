@@ -15,7 +15,12 @@
     margin: 0px;
     font-family: 'Rubik', sans-serif;
 }
-
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 50px 0px;
+}
 html {
     /*background: #5F13AA;*/
 }
@@ -31,7 +36,17 @@ h2 {
     font-weight: 400;
     font-size: 18px;
 }
-
+.title_website{
+    margin: 0 auto;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.container_doing_done{
+    display: flex;
+    margin: 0 auto;
+    width: 968px;
+}
 .container_todo {
     display: flex;
     flex-direction: column;
@@ -48,19 +63,23 @@ h2 {
     width: 360px;
 }
 
-.image_and_date {
+.image{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     width: 360px;
     height: 200px;
     margin-bottom: 14px;
-    background-image: url("img/clip-done.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
-
+.done{
+    background-image: url("img/clip-done.png");
+}
+.doing{
+    background-image: url("img/clip-list-is-empty.png");
+}
 .cleaner_section {
     display: flex;
     justify-content: flex-end;
@@ -247,6 +266,12 @@ input[type=radio] {
     cursor: pointer;
 }
 
+input:focus{
+    outline: 0;
+}
+textarea{
+    outline: 0;
+}
 input[type=radio]:checked {
     -webkit-appearance: none;
     border: 3px solid #1445A7;
@@ -294,7 +319,14 @@ input[type=radio]:checked {
     box-shadow: 0px 4px 150px rgba(55, 105, 151, 0.3);
     margin-bottom: 100px;
 }
-
+.img_sort{
+    height: 250px;
+    width: 250px;
+    background-image: url("img/sort.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 .content_sort {
     background-color: white;
     width: 100%;

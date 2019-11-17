@@ -8,22 +8,31 @@
 </head>
 <body>
 <div id="grey" onclick="show_form('none')"></div>
-
-<div class="container_todo ">
-    <div class="name_of_column"><h1>Doing</h1></div>
-    <div class="image_and_date">
-        <div class="cleaner_section">
-            <div class="cleaner" id="cleaner"></div>
+<header>
+    <div class="title_website">todo list</div>
+</header>
+<div class="container_doing_done" >
+    <div class="container_todo" id="doing">
+        <div class="name_of_column"><h1>Doing</h1></div>
+        <div class="image doing ">
+            <div class="cleaner_section">
+                <div class="cleaner" id="cleaner"></div>
+            </div>
+            <div class="date_section">
+                <div class="date" id="date"></div>
+            </div>
         </div>
-        <div class="date_section">
-            <div class="date" id="date"></div>
+        <div id="tasks">
+
+        </div>
+        <div class="button_open_form_add_task" id="open_form" onclick="show_form('block')">
+            <div class="text_button">Add task</div>
         </div>
     </div>
-    <div id="tasks">
-
-    </div>
-    <div class="button_open_form_add_task" id="open_form" onclick="show_form('block')">
-        <div class="text_button">Add task</div>
+    <div class="container_todo" id="done">
+        <div class="name_of_column"><h1>Done</h1></div>
+        <div class="image done">
+        </div>
     </div>
 </div>
 <br>
@@ -48,6 +57,7 @@
 </div>
 <br><br>;
 <div class="container_sort_task" id="container_sort">
+    <div class="img_sort"></div>
     <h1>Sort tasks</h1>
     <h2>Choose the color of the label you want to display</h2>
     <br>
