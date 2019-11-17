@@ -4,13 +4,14 @@ const form_task = document.getElementById('form');
 const check_items = document.getElementById('check_items');
 
 // const block_select = document.getElementById('container_sort');
-const sort_tasks = document.getElementById('sort_tasks');
 const title = document.getElementById('title');
-const tasks = document.getElementById('tasks');
+const tasks_doing = document.getElementById('tasks_doing');
+const tasks_done = document.getElementById('tasks_done');
+const sort_tasks = document.getElementById('sort_tasks');
+
 const text = document.getElementById('text');
 const button = document.getElementById('add_new_task');
 const button_cleaner = document.getElementById('cleaner');
-
 
 
 let list = [];
@@ -32,7 +33,7 @@ function clean_all_tasks() {
 }
 
 function add_task_html(title, text, id_task, color_label) {
-    const item = `<div class="content" id="task_${id_task}" draggable="true">
+    const item = `<div class="content" id="task_${id_task}" draggable="true" ondragstart="dragstart(event,this)" ondragend="dragend(this)">
         <div class="content_outside">
             <div class="label ${color_label}"></div>
             <div class="circle-border"></div>
@@ -46,7 +47,7 @@ function add_task_html(title, text, id_task, color_label) {
         </div>
     </div>`;
     const position = 'beforeend';
-    tasks.insertAdjacentHTML(position, item);
+    tasks_doing.insertAdjacentHTML(position, item);
 }
 
 form_task.addEventListener("click", (event) => {
@@ -111,7 +112,7 @@ function date_today() {
     date.innerHTML = today.toLocaleDateString("eng-ENG", options);
 }
 
-tasks.addEventListener('click', (event) => {
+tasks_doing.addEventListener('click', (event) => {
     sort_tasks.innerHTML = "";
     if (event.target.className != 'delete') return;
     let content = event.target.closest('.content');
@@ -170,31 +171,29 @@ function add_sort_task_html(title, text, color) {
     sort_tasks.insertAdjacentHTML(position, item);
 }
 
-// block_select.addEventListener('click', event => {
-//     if (event.target.className != 'button_sort') return;
-//     let id_label = ''
-//     id_label = event.target.id.replace('_sort', ' ');
-//     let id = 0;
-//     for (let i in list){
-//         if (list.label == id_label){
-//             id++
-//         }
-//     }
-//     console.log(id)
-//     // let sort_list = list.filter((value) => {
-//     //     return value.label == id_label;
-//     // });
-// });
-
 // DRAG AND DROP
-tasks.addEventListener("dragstart", dragstart);
-tasks.addEventListener("dragend", dragend);
-
-function dragstart(el) {
-    let id_task = el.target.id;
-    console.log(start);
-    console.log(id_task);
+function dragstart(ev, el) {
+    ev.dataTransfer.setData("task", ev.target.id);
+    console.log(ev.target.id);
+    setTimeout(()=>{el.className = 'invisible'}, 0);
 }
-function dragend() {
-    console.log("end");
+function dragend(el) {
+    el.className = 'content'
+}
+function allowDraw(ev) {
+    ev.preventDefault();
+}
+
+function drop(ev, block) {
+    ev.preventDefault();
+    let data = ev.dataTransfer.getData("task");
+    block.appendChild(document.getElementById(data));
+    block.className = 'tasks';
+
+}
+function dragenter(el) {
+    el.className = 'dragenter';
+}
+function dragleave(el) {
+    el.className = 'tasks'
 }

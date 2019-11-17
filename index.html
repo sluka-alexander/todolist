@@ -12,7 +12,7 @@
     <div class="title_website">todo list</div>
 </header>
 <div class="container_doing_done" >
-    <div class="container_todo" id="doing">
+    <div class="container_todo" >
         <div class="name_of_column"><h1>Doing</h1></div>
         <div class="image doing ">
             <div class="cleaner_section">
@@ -22,7 +22,7 @@
                 <div class="date" id="date"></div>
             </div>
         </div>
-        <div id="tasks">
+        <div class="tasks" id="tasks_doing" ondrop="drop(event, this)" ondragover="allowDraw(event)" ondragenter="dragenter(this)" ondragleave="dragleave(this)">
 
         </div>
         <div class="button_open_form_add_task" id="open_form" onclick="show_form('block')">
@@ -32,6 +32,9 @@
     <div class="container_todo" id="done">
         <div class="name_of_column"><h1>Done</h1></div>
         <div class="image done">
+        </div>
+        <div class="tasks" id="tasks_done" ondrop="drop(event, this)" ondragover="allowDraw(event)"  ondragenter="dragenter(this)" ondragleave="dragleave(this)">
+
         </div>
     </div>
 </div>
@@ -56,6 +59,7 @@
     </div>
 </div>
 <br><br>;
+
 <div class="container_sort_task" id="container_sort">
     <div class="img_sort"></div>
     <h1>Sort tasks</h1>
@@ -66,6 +70,7 @@
         <div class="button_sort" id="green_sort"></div>
         <div class="button_sort" id="blue_sort"></div>
     </div>
+
     <div id="sort_tasks">
 
     </div>

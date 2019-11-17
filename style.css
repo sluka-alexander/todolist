@@ -15,12 +15,14 @@
     margin: 0px;
     font-family: 'Rubik', sans-serif;
 }
-header{
+
+header {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin: 50px 0px;
 }
+
 html {
     /*background: #5F13AA;*/
 }
@@ -36,17 +38,20 @@ h2 {
     font-weight: 400;
     font-size: 18px;
 }
-.title_website{
+
+.title_website {
     margin: 0 auto;
     font-size: 32px;
     text-transform: uppercase;
     font-weight: 900;
 }
-.container_doing_done{
+
+.container_doing_done {
     display: flex;
     margin: 0 auto;
     width: 968px;
 }
+
 .container_todo {
     display: flex;
     flex-direction: column;
@@ -63,7 +68,7 @@ h2 {
     width: 360px;
 }
 
-.image{
+.image {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -74,12 +79,15 @@ h2 {
     background-position: center;
     background-size: contain;
 }
-.done{
+
+.done {
     background-image: url("img/clip-done.png");
 }
-.doing{
+
+.doing {
     background-image: url("img/clip-list-is-empty.png");
 }
+
 .cleaner_section {
     display: flex;
     justify-content: flex-end;
@@ -113,6 +121,7 @@ h2 {
     border-radius: 15px;
     background: #FFFFFF;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .content_outside {
@@ -266,12 +275,14 @@ input[type=radio] {
     cursor: pointer;
 }
 
-input:focus{
+input:focus {
     outline: 0;
 }
-textarea{
+
+textarea {
     outline: 0;
 }
+
 input[type=radio]:checked {
     -webkit-appearance: none;
     border: 3px solid #1445A7;
@@ -319,7 +330,8 @@ input[type=radio]:checked {
     box-shadow: 0px 4px 150px rgba(55, 105, 151, 0.3);
     margin-bottom: 100px;
 }
-.img_sort{
+
+.img_sort {
     height: 250px;
     width: 250px;
     background-image: url("img/sort.png");
@@ -327,6 +339,7 @@ input[type=radio]:checked {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
 .content_sort {
     background-color: white;
     width: 100%;
@@ -334,10 +347,12 @@ input[type=radio]:checked {
     border-radius: 15px;
     margin-bottom: 10px;
 }
-#sort_tasks{
-width: 100%;
+
+#sort_tasks {
+    width: 100%;
 }
-.line{
+
+.line {
     width: 100%;
     height: 3px;
     margin: 5px 0px;
@@ -381,4 +396,21 @@ width: 100%;
 
 #blue_sort {
     background-color: #2568EF;
+}
+
+.invisible {
+    display: none;
+}
+
+.tasks{
+    padding: 2px;
+    width: 360px;
+    padding-bottom: 90px;
+}
+
+.dragenter{
+    width: 360px;
+    padding-bottom: 90px;
+    border: 2px dashed #c0c7cb;
+    margin-bottom: 3px;
 }
