@@ -19,19 +19,20 @@ let list_done = [];
 let id = 1;
 let label = ' ';
 let id_task_change = 0;
+let task_change = '';
 
 if (localStorage.getItem('todo') != undefined) {
 
     list = JSON.parse(localStorage.getItem('todo'));
 
-    list = list.filter((e)=>{
+    list = list.filter((e) => {
         return e !== null;
     });
 
     id = JSON.parse(localStorage.getItem('id'));
     list_done = JSON.parse(localStorage.getItem('todo_done'));
     list_done = list_done || [];
-    list_done = list_done.filter((e)=>{
+    list_done = list_done.filter((e) => {
         return e !== null;
     });
 
@@ -131,18 +132,27 @@ function date_today() {
 }
 
 tasks_doing.addEventListener('click', (event) => {
+    remove(list, 'todo');
+});
+
+tasks_done.addEventListener('click', (event) => {
+    remove(list_done, 'todo_done');
+});
+
+function remove(array, localstorage) {
     sort_tasks.innerHTML = "";
     if (event.target.className != 'delete') return;
     let content = event.target.closest('.content');
     content.remove();
     let id_task = event.target.id;
-    list.splice(id_task - 1, 1);
-    localStorage.setItem('todo', JSON.stringify(list));
-});
+    array.splice(id_task - 1, 1);
+    localStorage.setItem(localstorage, JSON.stringify(array));
+}
+
 date_today();
 clean_all_tasks()
 
-// ------------------------Sort------------------------
+// ------------------------ SORT DOING TASK----------------------------
 const red = document.getElementById('red_sort');
 const green = document.getElementById('green_sort');
 const blue = document.getElementById('blue_sort');
@@ -189,14 +199,14 @@ function add_sort_task_html(title, text, color) {
     sort_tasks.insertAdjacentHTML(position, item);
 }
 
-// DRAG AND DROP
+// ------------------------ DRAG AND DROP ------------------------
 function dragstart(ev, el) {
     ev.dataTransfer.setData("task", ev.target.id);
     setTimeout(() => {
         el.className = 'invisible'
     }, 0);
-    id_task_change = Number(ev.target.id.slice(-1));
-    console.log(id_task_change);
+    id_task_change = Number(ev.target.id.replace(/\D+/g, ''));
+    task_change = ev.target.id.replace(/[^a-z]/g, '');
 }
 
 function dragend(el) {
@@ -207,18 +217,18 @@ function allowDraw(ev) {
     ev.preventDefault();
 }
 
-function drop(ev, block, arr_add, arr_del) {
+function drop(ev, block, arr_add, arr_del, stat) {
     list_done = list_done || [];
     ev.preventDefault();
     let data = ev.dataTransfer.getData("task");
     block.appendChild(document.getElementById(data));
     block.className = 'tasks';
-
-    arr_add.push(arr_del[id_task_change - 1]);
-    delete arr_del[id_task_change - 1];
-
-    localStorage.setItem('todo', JSON.stringify(list));
-    localStorage.setItem('todo_done', JSON.stringify(list_done));
+    if (task_change == stat) {
+        arr_add.push(arr_del[id_task_change - 1]);
+        delete arr_del[id_task_change - 1];
+        localStorage.setItem('todo', JSON.stringify(list));
+        localStorage.setItem('todo_done', JSON.stringify(list_done));
+    }
 }
 
 function dragenter(el) {
