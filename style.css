@@ -403,12 +403,12 @@ input[type=radio]:checked {
 }
 
 .tasks{
-    padding: 2px;
     width: 360px;
     padding-bottom: 90px;
 }
 
 .dragenter{
+    padding: 2px;
     width: 360px;
     padding-bottom: 90px;
     border: 2px dashed #c0c7cb;

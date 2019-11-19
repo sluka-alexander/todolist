@@ -2,7 +2,7 @@
 <html lang="en" class="overlay">
 <head>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,900&display=swap" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,900&display=swap" rel="stylesheet">-->
     <meta charset="UTF-8">
     <title>Todo</title>
 </head>
@@ -22,7 +22,7 @@
                 <div class="date" id="date"></div>
             </div>
         </div>
-        <div class="tasks" id="tasks_doing" ondrop="drop(event, this)" ondragover="allowDraw(event)" ondragenter="dragenter(this)" ondragleave="dragleave(this)">
+        <div class="tasks" id="tasks_doing" ondrop="drop(event, this, list, list_done)" ondragover="allowDraw(event)" ondragenter="dragenter(this)" ondragleave="dragleave(this)">
 
         </div>
         <div class="button_open_form_add_task" id="open_form" onclick="show_form('block')">
@@ -33,7 +33,7 @@
         <div class="name_of_column"><h1>Done</h1></div>
         <div class="image done">
         </div>
-        <div class="tasks" id="tasks_done" ondrop="drop(event, this)" ondragover="allowDraw(event)"  ondragenter="dragenter(this)" ondragleave="dragleave(this)">
+        <div class="tasks" id="tasks_done" ondrop="drop(event, this, list_done, list)" ondragover="allowDraw(event)"  ondragenter="dragenter(this)" ondragleave="dragleave(this)">
 
         </div>
     </div>

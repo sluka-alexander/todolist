@@ -15,13 +15,26 @@ const button_cleaner = document.getElementById('cleaner');
 
 
 let list = [];
+let list_done = [];
 let id = 1;
 let label = ' ';
+let id_task_change = 0;
 
 if (localStorage.getItem('todo') != undefined) {
+
     list = JSON.parse(localStorage.getItem('todo'));
+
+    list = list.filter((e)=>{
+        return e !== null;
+    });
+
     id = JSON.parse(localStorage.getItem('id'));
-    console.log(list);
+    list_done = JSON.parse(localStorage.getItem('todo_done'));
+    list_done = list_done || [];
+    list_done = list_done.filter((e)=>{
+        return e !== null;
+    });
+
     out_all_task();
 }
 
@@ -32,7 +45,7 @@ function clean_all_tasks() {
     })
 }
 
-function add_task_html(title, text, id_task, color_label) {
+function add_task_html(title, text, id_task, color_label, way) {
     const item = `<div class="content" id="task_${id_task}" draggable="true" ondragstart="dragstart(event,this)" ondragend="dragend(this)">
         <div class="content_outside">
             <div class="label ${color_label}"></div>
@@ -47,7 +60,7 @@ function add_task_html(title, text, id_task, color_label) {
         </div>
     </div>`;
     const position = 'beforeend';
-    tasks_doing.insertAdjacentHTML(position, item);
+    way.insertAdjacentHTML(position, item);
 }
 
 form_task.addEventListener("click", (event) => {
@@ -62,7 +75,7 @@ function add_task() {
     const text_value = text.value;
     if (title_value && text_value) {
         sort_tasks.innerHTML = "";
-        add_task_html(title.value, text.value, list.length + 1, label);
+        add_task_html(title.value, text.value, list.length + 1, label, tasks_doing);
         list.push({
             title: title.value,
             text: text.value,
@@ -86,7 +99,7 @@ function add_task() {
 button.addEventListener('click', add_task);
 
 document.addEventListener("keyup", function (event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 13 && title.value && text.value) {
         add_task();
     }
 });
@@ -100,8 +113,13 @@ function show_form(state) {
 function out_all_task() {
     let id_task = 1;
     for (let i in list) {
-        add_task_html(list[i].title, list[i].text, id_task, list[i].label);
+        add_task_html(list[i].title, list[i].text, id_task, list[i].label, tasks_doing);
         id_task++;
+    }
+    let id_task_done = 1;
+    for (let i in list_done) {
+        add_task_html(list_done[i].title, list_done[i].text, 'done_' + id_task_done, list_done[i].label, tasks_done);
+        id_task_done++;
     }
 }
 
@@ -174,26 +192,40 @@ function add_sort_task_html(title, text, color) {
 // DRAG AND DROP
 function dragstart(ev, el) {
     ev.dataTransfer.setData("task", ev.target.id);
-    console.log(ev.target.id);
-    setTimeout(()=>{el.className = 'invisible'}, 0);
+    setTimeout(() => {
+        el.className = 'invisible'
+    }, 0);
+    id_task_change = Number(ev.target.id.slice(-1));
+    console.log(id_task_change);
 }
+
 function dragend(el) {
     el.className = 'content'
 }
+
 function allowDraw(ev) {
     ev.preventDefault();
 }
 
-function drop(ev, block) {
+function drop(ev, block, arr_add, arr_del) {
+    list_done = list_done || [];
     ev.preventDefault();
     let data = ev.dataTransfer.getData("task");
     block.appendChild(document.getElementById(data));
     block.className = 'tasks';
 
+    arr_add.push(arr_del[id_task_change - 1]);
+    delete arr_del[id_task_change - 1];
+
+    localStorage.setItem('todo', JSON.stringify(list));
+    localStorage.setItem('todo_done', JSON.stringify(list_done));
 }
+
 function dragenter(el) {
     el.className = 'dragenter';
 }
+
 function dragleave(el) {
     el.className = 'tasks'
 }
+
